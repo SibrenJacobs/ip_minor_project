@@ -1,7 +1,7 @@
-package ucll.ip_minor.project.repository;
+package ucll.ip_minor.project.model.repository;
 
 import org.springframework.stereotype.Repository;
-import ucll.ip_minor.project.domain.Task;
+import ucll.ip_minor.project.model.entity.Task;
 
 import java.time.LocalDateTime;
 import java.util.*;

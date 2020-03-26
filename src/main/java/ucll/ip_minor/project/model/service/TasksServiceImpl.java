@@ -1,13 +1,13 @@
-package ucll.ip_minor.project.service;
+package ucll.ip_minor.project.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ucll.ip_minor.project.DTO.SubTaskDTO;
-import ucll.ip_minor.project.DTO.TaskDTO;
-import ucll.ip_minor.project.domain.SubTask;
-import ucll.ip_minor.project.domain.Task;
-import ucll.ip_minor.project.repository.SubTasksJAPrepo;
-import ucll.ip_minor.project.repository.TasksJPArepo;
+import ucll.ip_minor.project.model.DTO.SubTaskDTO;
+import ucll.ip_minor.project.model.DTO.TaskDTO;
+import ucll.ip_minor.project.model.entity.SubTask;
+import ucll.ip_minor.project.model.entity.Task;
+import ucll.ip_minor.project.model.repository.SubTasksJAPrepo;
+import ucll.ip_minor.project.model.repository.TasksJPArepo;
 
 import java.util.ArrayList;
 import java.util.List;

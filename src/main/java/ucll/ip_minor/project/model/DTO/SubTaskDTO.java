@@ -1,20 +1,14 @@
-package ucll.ip_minor.project.domain;
+package ucll.ip_minor.project.model.DTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
-@Entity
-public class SubTask {
-    @Id
-    @GeneratedValue
+import java.util.Objects;
+
+public class SubTaskDTO {
     private int id;
     private String title,description;
-    @ManyToOne
-    private Task parent;
+    private TaskDTO parent;
 
-    public SubTask(){
+    public SubTaskDTO(){
 
     }
 
@@ -30,7 +24,7 @@ public class SubTask {
         this.title = title;
     }
 
-    public void setParent(Task parent) {
+    public void setParent(TaskDTO parent) {
         this.parent = parent;
     }
 
@@ -46,7 +40,20 @@ public class SubTask {
         return title;
     }
 
-    public Task getParent() {
+    public TaskDTO getParent() {
         return parent;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof SubTaskDTO){
+            return this.id == ((SubTaskDTO) o).id;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hashCode(id);
     }
 }

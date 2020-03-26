@@ -5,10 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ucll.ip_minor.project.DTO.SubTaskDTO;
-import ucll.ip_minor.project.DTO.TaskDTO;
-import ucll.ip_minor.project.domain.SubTask;
-import ucll.ip_minor.project.service.TasksService;
+import ucll.ip_minor.project.model.DTO.SubTaskDTO;
+import ucll.ip_minor.project.model.DTO.TaskDTO;
+import ucll.ip_minor.project.model.service.TasksService;
 
 @Controller
 @RequestMapping("/tasks")

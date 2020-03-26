@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import ucll.ip_minor.project.DTO.TaskDTO;
-import ucll.ip_minor.project.service.TasksService;
+import ucll.ip_minor.project.model.DTO.TaskDTO;
+import ucll.ip_minor.project.model.service.TasksService;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
+import java.util.List;
 
 @SpringBootTest
 public class TasksServiceTest {
@@ -37,7 +37,7 @@ public class TasksServiceTest {
 
     @Test
     public void getTasks_give_tasks(){
-        Collection<TaskDTO> tasks = service.getTasks();
+        List<TaskDTO> tasks = service.getTasks();
 
         assertEquals(3,tasks.size());
         assertTrue(tasks.contains(task1));

@@ -1,26 +1,22 @@
-package ucll.ip_minor.project.domain;
+package ucll.ip_minor.project.model.DTO;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import ucll.ip_minor.project.model.entity.Task;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
-@Entity
-public class Task implements Comparable<Task> {
-    @Id
-    @GeneratedValue
+public class TaskDTO implements Comparable<TaskDTO> {
     private int id;
     private String title,description;
     private LocalDateTime dueDate;
 
-    public Task(){
+    public TaskDTO(){
 
     }
 
-    public Task(String title,String description,LocalDateTime dueDate){
+    public TaskDTO(String title,String description,LocalDateTime dueDate){
         setTitle(title);
         setDescription(description);
         setDueDate(dueDate);
@@ -66,7 +62,20 @@ public class Task implements Comparable<Task> {
     }
 
     @Override
-    public int compareTo(Task task){
+    public int compareTo(TaskDTO task){
         return dueDate.compareTo(task.dueDate);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof TaskDTO){
+            return this.id == ((TaskDTO) o).id;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hashCode(id);
     }
 }
