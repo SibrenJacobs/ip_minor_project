@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Detail</title>
+</head>
+<body>
+<main>
+    <h1>Task detail</h1>
+    <div th:if="${task == null}">
+        <p>
+            Task not found
+        </p>
+    </div>
+    <div th:if="${task != null}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:object="${task}">
+                    <td th:text="*{title}"></td>
+                    <td th:text="*{description}"></td>
+                    <td th:text="*{dueDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${subTasks != null && subTasks.size() != 0}">
+        <h2>Sub Tasks:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  th:each="subTask : ${subTasks}" th:object="${subTask}">
+                    <td th:text="*{title}"></td>
+                    <td th:text="*{description}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a th:href="@{/tasks/{id}/sub/create(id=${task.id})}" >Create new sub task</a>
+</main>
+</body>
+</html>

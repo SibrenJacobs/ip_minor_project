@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks Overview</title>
+</head>
+<body>
+<main>
+    <h1>Tasks</h1>
+    <div th:if="${tasks.size() == 0}">
+        <p>
+            No tasks left to do
+        </p>
+    </div>
+    <div th:if="${tasks.size() != 0}">
+        <table>
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Edit</th>
+                <th>See Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="task : ${tasks}" th:object="${task}">
+                <td th:text="${task}"></td>
+                <td><a th:href="@{/tasks/edit/{id}(id=*{id})}">edit</a></td>
+                <td><a th:href="@{/tasks/{id}(id=*{id})}">details</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
