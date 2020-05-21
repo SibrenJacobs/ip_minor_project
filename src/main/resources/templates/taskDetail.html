@@ -50,6 +50,7 @@
     <a sec:authorize-url="/tasks/${task.id}/sub/create" th:href="@{/tasks/{id}/sub/create(id=${task.id})}">Create a new sub task</a>
 </main>
 <footer>
+    <a href="/tasks">Tasks Overview</a>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout"/>
     </form>
