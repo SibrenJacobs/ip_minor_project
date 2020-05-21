@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Task Detail</title>
@@ -47,7 +47,12 @@
             </tbody>
         </table>
     </div>
-    <a th:href="@{/tasks/{id}/sub/create(id=${task.id})}" >Create new sub task</a>
+    <a sec:authorize-url="/tasks/${task.id}/sub/create" th:href="@{/tasks/{id}/sub/create(id=${task.id})}">Create a new sub task</a>
 </main>
+<footer>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</footer>
 </body>
 </html>

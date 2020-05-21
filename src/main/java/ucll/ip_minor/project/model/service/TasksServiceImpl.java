@@ -115,8 +115,8 @@ public class TasksServiceImpl implements TasksService {
     @Override
     public List<SubTaskDTO> getSubTasksOfParent(int parentId) {
         List<SubTaskDTO> result = new ArrayList<>();
-        for (SubTask subTask : subTasksJAPrepo.findAll()){
-            if (subTask.getParent().getId() == parentId){
+        for (SubTask subTask : subTasksJAPrepo.findAll()) {
+            if (subTask.getParent().getId() == parentId) {
                 SubTaskDTO subTaskDTO = new SubTaskDTO();
                 subTaskDTO.setId(subTask.getId());
                 subTaskDTO.setTitle(subTask.getTitle());

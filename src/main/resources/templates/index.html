@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>IP MINOR</title>
@@ -10,8 +10,13 @@
         <a href="/tasks">Overview of tasks</a>
     </p>
     <p>
-        <a href="/tasks/new">Create a new task</a>
+        <a sec:authorize-url="/tasks/new" th:href="@{/tasks/new}">Create a new task</a>
     </p>
 </main>
+<footer>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</footer>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>IP MINOR</title>
+</head>
+<body>
+<main>
+    <h1>Sign Up</h1>
+    <form th:method="post" th:action="@{/signUp}" th:object="${user}">
+        <p th:if="${!#fields.globalErrors().isEmpty()}" th:text="${#fields.globalErrors()}"></p>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" th:field="*{username}" id="username">
+            <p th:errors="*{username}"></p>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" th:field="*{password}" id="password">
+        </div>
+        <div>
+            <label for="role">Password:</label>
+            <select th:field="*{role}" id="role">
+                <option value="ADMIN">Admin</option>
+                <option value="MEMBER">Member</option>
+            </select>
+        </div>
+        <input type="submit" value="Sign up">
+    </form>
+</main>
+</body>
+</html>

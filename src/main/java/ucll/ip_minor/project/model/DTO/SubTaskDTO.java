@@ -1,6 +1,8 @@
 package ucll.ip_minor.project.model.DTO;
 
 
+import ucll.ip_minor.project.model.entity.SubTask;
+
 import java.util.Objects;
 
 public class SubTaskDTO {
