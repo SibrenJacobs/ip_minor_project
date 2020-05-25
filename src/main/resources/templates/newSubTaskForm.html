@@ -26,6 +26,7 @@
     </form>
 </main>
 <footer>
+    <a th:href="@{/tasks/{id}(id=${parentId})}">Task details</a>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout"/>
     </form>
