@@ -5,6 +5,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -15,6 +17,9 @@ public class Task {
     private int id;
     private String title,description;
     private LocalDateTime dueDate;
+    @NotEmpty
+    @ManyToOne
+    private Team team;
 
     public Task(){
 

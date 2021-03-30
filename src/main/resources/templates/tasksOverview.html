@@ -23,7 +23,7 @@
             </thead>
             <tbody>
             <tr  th:each="task : ${tasks}" th:object="${task}">
-                <td th:text="${task}"></td>
+                <td th:text="*{title}"></td>
                 <td sec:authorize-url="/tasks/edit/*{id}"><a th:href="@{/tasks/edit/{id}(id=*{id})}">edit</a></td>
                 <td><a th:href="@{/tasks/{id}(id=*{id})}">details</a></td>
             </tr>

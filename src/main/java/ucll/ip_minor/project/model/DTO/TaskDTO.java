@@ -3,13 +3,18 @@ package ucll.ip_minor.project.model.DTO;
 import org.springframework.format.annotation.DateTimeFormat;
 import ucll.ip_minor.project.model.entity.Task;
 
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class TaskDTO implements Comparable<TaskDTO> {
     private int id;
-    private String title,description;
+    @NotEmpty
+    private String title;
+    @NotEmpty
+    private String description;
     private LocalDateTime dueDate;
 
     public TaskDTO(){
@@ -34,7 +39,6 @@ public class TaskDTO implements Comparable<TaskDTO> {
         this.description = description;
     }
 
-    @DateTimeFormat
     public void setDueDate(LocalDateTime dueDate) {
         this.dueDate = dueDate;
     }

@@ -9,6 +9,8 @@ import ucll.ip_minor.project.model.DTO.SubTaskDTO;
 import ucll.ip_minor.project.model.DTO.TaskDTO;
 import ucll.ip_minor.project.model.service.TasksService;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/tasks")
 public class TasksController {
@@ -39,7 +41,7 @@ public class TasksController {
     }
 
     @PostMapping("/new")
-    public String addTask(@ModelAttribute TaskDTO task, BindingResult bindingResult){
+    public String addTask(@ModelAttribute("task") @Valid TaskDTO task, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             return "newTaskForm";
         }
@@ -67,7 +69,7 @@ public class TasksController {
     }
 
     @PostMapping("/{parentId}/sub/create")
-    public String addSubTask(@PathVariable int parentId,@ModelAttribute SubTaskDTO subTask){
+    public String addSubTask(@PathVariable int parentId,@ModelAttribute("subTask") SubTaskDTO subTask){
         subTask.setParent(tasksService.getTask(parentId));
         tasksService.addSubTask(subTask);
         return "redirect:/tasks/" + parentId;

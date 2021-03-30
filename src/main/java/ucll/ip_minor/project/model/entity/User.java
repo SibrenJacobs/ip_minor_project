@@ -5,6 +5,8 @@ import ucll.ip_minor.project.model.UserRole;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -15,6 +17,9 @@ public class User {
 	private String username;
 	private String password;
 	private UserRole role;
+
+	@ManyToMany
+	private Set<Team> teams;
 
 	public String getUsername() {
 		return username;
@@ -46,5 +51,13 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Set<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(Set<Team> teams) {
+		this.teams = teams;
 	}
 }

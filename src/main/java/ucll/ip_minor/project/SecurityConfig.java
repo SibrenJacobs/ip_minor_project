@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .mvcMatchers("/teams/create").hasAuthority("ADMIN")
                 .mvcMatchers("/signUp").permitAll()
                 .mvcMatchers("/tasks/new").hasAuthority("ADMIN")
                 .antMatchers("/tasks/edit/**").hasAuthority("ADMIN")

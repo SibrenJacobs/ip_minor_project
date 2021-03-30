@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Teams Overview</title>
+</head>
+<body>
+<main>
+    <h1>Teams</h1>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number of members</th>
+                <th>Mumber of tasks</th>
+                <th>Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="task : ${teams}" th:object="${team}">
+                <td th:text="${team.getMembers().size()}"></td>
+                <td th:text="${team.getTasks().size()}"></td>
+                <td><a th:href="@{/teams/{id}(id=*{id})}">details</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <a href="/">Home</a>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</footer>
+</body>
+</html>

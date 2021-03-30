@@ -1,0 +1,9 @@
+package ucll.ip_minor.project.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/teams")
+public class TeamsController {
+}
